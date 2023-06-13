@@ -33,7 +33,7 @@ class Todo implements ValidationRule
     protected function tree($id)
     {
         $todo = \App\Models\Todo::find($id);
-        foreach ($todo->parent as $item)
+        foreach ($todo->childrens as $item)
         {
             if($item->status != 'done')
             {

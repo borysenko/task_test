@@ -12,7 +12,7 @@ class Todo extends Model
 
     protected $fillable = ['parent_id', 'title', 'description', 'status', 'priority'];
 
-    public function parent()
+    public function childrens()
     {
         return $this->hasMany(self::class, 'parent_id')->sort();
     }

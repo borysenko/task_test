@@ -36,7 +36,7 @@
                             @foreach ($todo as $item)
                                 @include('todo._todo')
                                 @if(!request()->title)
-                                    @include('todo._tree', ['parent' => $item->parent])
+                                    @include('todo._tree', ['childrens' => $item->childrens])
                                 @endif
                                 <hr />
                             @endforeach
