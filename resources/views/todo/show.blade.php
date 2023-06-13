@@ -8,7 +8,7 @@
                 <div class="card-header">Show todo #{{$todo->id}}</div>
 
                 <div class="card-body">
-                    <form action="{{ route('todo.destroy', $todo->id) }}" method="todo">
+                    <form action="{{ route('todo.destroy', $todo->id) }}" method="POST">
                         <a class="btn btn-primary" href="{{ route('todo.edit', $todo->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
