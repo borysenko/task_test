@@ -12,7 +12,7 @@
                         <a class="btn btn-primary" href="{{ route('todo.edit', $todo->id) }}">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger">Delete</button>
+                        <button type="submit" @if($todo->status == 'done') disabled @endif class="btn btn-danger">Delete</button>
                     </form>
                     <h1>{{ $todo->title ?? 'Not translate' }}</h1>
                     <p>{{ $todo->description ?? 'Not translate' }}</p>
