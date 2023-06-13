@@ -25,7 +25,7 @@ class TodoPostRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => 'required',
-            'status' => 'required',
+            'status' => 'required|in:todo,done',
             'priority' => 'required|integer|between:1,5'
         ];
     }

@@ -6,6 +6,7 @@ use App\Http\Requests\TodoPostRequest;
 use App\Models\Todo;
 use App\Repositories\Interfaces\TodoRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\View;
 
 class ToDoController extends Controller
@@ -82,13 +83,10 @@ class ToDoController extends Controller
      * @param  \App\todo  $todo
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(TodoPostRequest $request, $id)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
             'status' => ['required', new \App\Rules\Todo($id)],
-            'priority' => 'required|integer|between:1,5'
         ]);
 
         $this->todoRepository->updateTodo($request->all(), $id);
